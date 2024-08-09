@@ -1,0 +1,78 @@
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Game Bride</title>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="logo"><img src="../images/logo.png" alt="logo" width="110px"></div>
+        <nav>
+            <p class="input-container">
+                
+                    <a href="#" class="button-4" role="button">Home</a> 
+                    <a href="#" class="button-4" role="button">Perfil</a>
+                    <a href="../cadastro/index.html" class="button-4" role="button">Cadastrar</a>
+                    <a href="../login/index.html" class="button-4" role="button">Entrar</a>
+                
+                <div class="search">
+                    <input type="text" placeholder="Busque por players, jogos, desenvolvimento..." name="text" id="text" autocomplete="name">
+                    <button type="submit">Pesquisar</button>
+                </div>
+            </p>
+        </nav>
+    </header>
+
+    <section class="main-section">
+        <div class="text-information">
+            <div class="game-bride">GAME BRIDE
+                <div class="tagline">A ponte que conecta jogos ao sucesso</div>
+            </div>
+            <div class="game-bride">GB PLAYER
+                <div class="tagline">Encontrando os melhores jogos para você</div>
+            </div>
+        </div>
+        
+        <div class="button-select">
+            <div class="button-container">
+                <button class="button" onclick="aventurar()">Aventurar-se</button>
+                <div class="button-description">Para jogadores</div>
+            </div>
+            <div class="button-container">
+                <button class="button" onclick="criarAventuras()">Criar aventuras</button>
+                <div class="button-description">Para desenvolvedores</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="scroll-container">
+        <img src="../images/game.png" alt="Cinque Terre">
+        <img src="../images/game.png" alt="Forest">
+        <img src="../images/game.png" alt="Northern Lights">
+        <img src="../images/game.png" alt="Mountains">
+        <img src="../images/game.png" alt="Mountains">
+        <img src="../images/game.png" alt="Mountains">
+        <img src="../images/game.png" alt="Mountains">
+        <img src="../images/game.png" alt="Mountains">
+        <img src="../images/game.png" alt="Mountains">
+        <img src="../images/game.png" alt="Mountains">
+      </div>
+
+    <script>
+        function criarAventuras() {
+            alert("Ação de criar aventuras para desenvolvedores!");
+        }
+
+        function aventurar() {
+            alert("Ação de aventurar-se para jogadores!");
+        }
+    </script>
+
+</body>
+
+</html>
