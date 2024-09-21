@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <title>Game Bride</title>
 
 </head>
@@ -14,16 +16,17 @@
         <div class="logo"><img src="../images/logo.png" alt="logo" width="110px"></div>
         <nav>
             <p class="input-container">
-                
-                    <a href="#" class="button-4" role="button">Home</a> 
-                    <a href="#" class="button-4" role="button">Perfil</a>
-                    <a href="../cadastro/index.html" class="button-4" role="button">Cadastrar</a>
-                    <a href="../login/index.html" class="button-4" role="button">Entrar</a>
-                
-                <div class="search">
-                    <input type="text" placeholder="Busque por players, jogos, desenvolvimento..." name="text" id="text" autocomplete="name">
-                    <button type="submit">Pesquisar</button>
-                </div>
+                <a href="#" class="button-4" role="button">Home</a>
+                <a href="../perfil/perfil.html" class="button-4" role="button">Perfil</a>
+                <a href="../cadastro/index.html" class="button-4" role="button">Cadastrar</a>
+                <a href="../login/index.html" class="button-4" role="button">Entrar</a>
+            <div class="search-container">
+                <input type="text" name="search" placeholder="Busque por players, jogos, desenvolvimento..."
+                    class="search-input">
+                <a href="#" class="search-btn">
+                    <i class="fas fa-search"></i>
+                </a>
+            </div>
             </p>
         </nav>
     </header>
@@ -37,7 +40,7 @@
                 <div class="tagline">Encontrando os melhores jogos para você</div>
             </div>
         </div>
-        
+
         <div class="button-select">
             <div class="button-container">
                 <button class="button" onclick="aventurar()">Aventurar-se</button>
@@ -61,7 +64,7 @@
         <img src="../images/game.png" alt="Mountains">
         <img src="../images/game.png" alt="Mountains">
         <img src="../images/game.png" alt="Mountains">
-      </div>
+    </div>
 
     <script>
         function criarAventuras() {

@@ -21,7 +21,6 @@ nav{
     margin-left: 10px;
     margin-right: 10px;
     appearance: none;
-    background-color: #0A66C2;
     border: 0;
     border-radius: 100px;
     box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
@@ -44,9 +43,8 @@ nav{
   }
   
   .button-4:hover{
-    background-color: #16437E;
-    text-decoration: none;
-    transition-duration: 0.1s;
+    border-bottom: 2px solid white;
+    padding-bottom: 2px;
   }
   
   .button-4:disabled {
@@ -77,38 +75,48 @@ nav{
     margin-top: 8px;
 }
 
-.search {
-    margin-top: 8px;
-  display: inline-block;
-  position: relative;
-}
-
-.search input[type="text"] {
-    width: 340px;
-    padding: 8px;
-    border: none;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.search button[type="submit"] {
-    background-color: #0A66C2;
-    border: none;
-    color: #fff;
+.search-container{
+    margin-right: 10px;
+    margin-left: 50px;
+    margin-top: 3px;
+    background: #fff;
+    height: 25px;
+    border-radius: 100px;
+    padding: 8px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    padding: 10px 14px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    top: 0;
-    right: 0;
-    transition: .9s ease;
+    transition: 0.8s;  
 }
 
-.search button[type="submit"]:hover {
-  transform: scale(1.02);
-  color: rgb(255, 255, 255);
-  background-color: blue;
+.search-container:hover > .search-input{
+    width: 400px;
+}
+
+.search-container .search-input{
+    background: transparent;
+    border: none;
+    outline:none;
+    width: 0px;
+    font-weight: 500;
+    font-size: 16px;
+    transition: 0.8s;
+
+}
+
+.search-container .search-btn .fas{
+    color: #043472;
+}
+
+.search-container:hover{
+  animation: hoverShake 0.15s linear 3;
+}
+
+.fa-search:before {
+    content: "\f002";
+    margin-left: 12px;
+    margin-right: -12px;
 }
 
 header nav a {
@@ -171,12 +179,18 @@ header nav input {
     font-family: Helvetica;
     font-weight: 900;
     height: 4em;
-    background-color: #529EC8;
+    background-color: #014a9d;
     color: #fff;
     border: none;
     border-radius: 100px;
+    transition-duration: 0.4s;
     cursor: pointer;
     width: 15em;
+}
+
+.button:hover {
+    background-color: #ffffff; /* Green */
+    color: #014a9d;
 }
 
 div.scroll-container {
