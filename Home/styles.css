@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
 
-/* Estilo da página geral */
 body, html {
   margin: 0;
   padding: 0;
@@ -8,32 +7,25 @@ body, html {
   height: 100%;
 }
 
-/* Estilo do cabeçalho */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: #333; */
-  /* padding: 0px 10px; */
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(0, 56, 129, 0.8); /* Fundo semi-transparente */
+  background-color: rgba(0, 56, 129, 0.8); 
   padding: 10px 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Logo no lado esquerdo */
 #logo img {
   height: 80px;
   width: 92px;
 }
 
-/* Botões de entrar e cadastrar */
 .header-buttons button {
-  /* margin-left: 10px; */
-  /* padding: 8px 16px; */
   background-color: #f4f4f4;
   border: none;
   border-radius: 4px;
@@ -47,7 +39,6 @@ header {
   opacity: 0.9;
 }
 
-/* Seção Parallax */
 .parallax {
   background-image: url('../images/image.png');
   height: 500px;
@@ -62,7 +53,6 @@ body {
   font-size: 3vh;
 }
 
-/* header */
 #header {
   display: flex;
   justify-content: space-between;
@@ -86,7 +76,6 @@ body {
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  /* padding: 1em; */
   box-sizing: border-box;
   color: white;
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url(../images/image.png) center center no-repeat;
@@ -131,14 +120,12 @@ body {
   background-color: white;
 }
 
-/* article */
 article {
   max-width: 36em;
   margin: 0 auto;
   padding: 1em;
 }
 
-/* Conteúdo da página */
 .content {
   height: 500px;
   background-color: #f2f2f2;
@@ -245,4 +232,4 @@ p {
   }
 }
 
-
+ */
