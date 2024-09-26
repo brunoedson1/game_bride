@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameBridge</title>
+    <link rel="shortcut icon" href="../images/logo.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../images/logo.png" alt="GameBridge" id="logo">
+            <h1>GameBridge</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Pesquisar...">
+        </div>
+        <div class="profile-menu">
+            <img src="images/avatar.png" alt="Perfil" class="avatar" id="profile-icon">
+            <div class="dropdown" id="profile-dropdown">
+                <ul>
+                    <li><a href="#">Perfil</a></li>
+                    <li><a href="#">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <aside class="left-sidebar">
+        <nav class="left">
+            <ul>
+                <li><a href="#">Página Inicial</a></li>
+                <li><a href="#">Notificações</a></li>
+                <li><a href="#">Mensagens</a></li>
+            </ul>
+        </nav>
+        <!-- Botão para abrir o formulário de adicionar post -->
+        <button id="add-post-button">Adicionar Post</button>
+    </aside>
+
+    <aside class="right-sidebar">
+        <div class="friends">
+            <h3>Amigos</h3>
+            <ul>
+                <li><img src="images/brtt.png" alt="Avatar"> BRTT</li>
+                <li><img src="images/fallen.jpg" alt="Avatar"> Fallen</li>
+                <li><img src="images/kscerato.jpg" alt="Avatar"> KSCERATO</li>
+            </ul>
+        </div>
+    </aside>
+
+    <main>
+        <section class="timeline">
+            <h2>Timeline</h2>
+
+            <!-- Container de posts -->
+            <div id="posts-container">
+                <div class="post">
+                    <div class="user-info">
+                        <img src="images/avatar.png" alt="Avatar" class="avatar">
+                        <div>
+                            <h3>GamerXYZ</h3>
+                            <span class="date">Publicado em 25/09/2024</span>
+                        </div>
+                    </div>
+                    <p class="content">Acabei de terminar um jogo incrível! Alguém mais jogou o *GameY*?</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Formulário para adicionar novo post -->
+    <div id="post-form-container" class="modal">
+        <form id="post-form">
+            <h2>Novo Post</h2>
+            <textarea id="post-content" placeholder="Escreva algo..."></textarea>
+            <button type="submit">Publicar</button>
+        </form>
+    </div>
+
+</body>
+</html>
+
+
+<style>
+ @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    font-family: "Chakra Petch", sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3434bb;
+    color: white;
+    padding: 20px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    border-bottom: 5px solid rgb(0, 42, 159);
+    box-shadow: #333;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+#logo{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.logo h1 {
+    font-size: 24px;
+}
+
+.search-bar input {
+    padding: 5px;
+    width: 600px;
+    border-radius: 4px;
+    height: 35px;
+    border: none;
+}
+
+.profile-menu {
+    position: relative;
+}
+
+.friends{
+    margin-top: 20px;
+}
+
+.left{
+    margin-top: 20px;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    border-radius: 5px;
+}
+
+.dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dropdown ul li:last-child {
+    border-bottom: none;
+}
+
+.dropdown ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown ul li:hover {
+    background-color: #f4f4f4;
+}
+
+.left-sidebar, .right-sidebar {
+    position: fixed;
+    top: 70px;
+    width: 200px;
+    height: 100%;
+    padding: 20px;
+    background-color: #5858f0;
+    color: white;
+    font-weight:bold;
+}
+
+.left-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 200px;
+    height: calc(100% - 70px); /* Altura total da janela menos a altura do header */
+    padding: 20px;
+    background-color: #5858f0;
+    color: white;
+    font-weight: bold;
+}
+
+.left-sidebar {
+    left: 0;
+}
+
+.right-sidebar {
+    right: 0;
+}
+
+.left-sidebar nav ul, .right-sidebar ul {
+    list-style-type: none;
+}
+
+.left-sidebar nav ul li, .right-sidebar ul li {
+    padding: 10px 0;
+}
+
+.left-sidebar nav ul li a, .right-sidebar ul li {
+    color: white;
+    text-decoration: none;
+}
+
+.right-sidebar ul li {
+    display: flex;
+    align-items: center;
+}
+
+.right-sidebar ul li img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+main {
+    margin: 100px 220px;
+}
+
+.timeline {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.post {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post:last-child {
+    border-bottom: none;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-info h3 {
+    margin: 0;
+    color: #333;
+}
+
+.date {
+    font-size: 12px;
+    color: #888;
+}
+
+.content {
+    font-size: 16px;
+    color: #444;
+}
+
+/* Estilização do botão de adicionar post */
+#add-post-button {
+    font-family: "Chakra Petch", sans-serif;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ffffff;
+    color: rgb(5, 19, 162);
+    border: none;
+    border-radius: 5px;
+    margin-top: auto;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#add-post-button:hover {
+    background-color: rgb(5, 19, 162);
+    color: white;
+}
+
+/* Modal para o formulário de novo post */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal.active {
+    display: block;
+}
+
+#post-form textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+#post-form button {
+    padding: 10px 20px;
+    background-color: #5858f0;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#post-form button:hover {
+    background-color: #4444cc;
+}
+
+
+</style>
+
+<script>
+    document.getElementById("profile-icon").addEventListener("click", function() {
+        var dropdown = document.getElementById("profile-dropdown");
+        if (dropdown.style.display === "block") {
+            dropdown.style.display = "none";
+        } else {
+            dropdown.style.display = "block";
+        }
+    });
+
+    window.onclick = function(event) {
+        if (!event.target.matches('.avatar')) {
+            var dropdowns = document.getElementsByClassName("dropdown");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.style.display === "block") {
+                    openDropdown.style.display = "none";
+                }
+            }
+        }
+    };
+
+    // Função para adicionar novo post
+    document.getElementById('add-post-button').addEventListener('click', function() {
+    document.getElementById('post-form-container').classList.add('active');
+});
+
+// Manipulação do envio do formulário
+document.getElementById('post-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita o comportamento padrão de envio do formulário
+
+    // Obtém o conteúdo do post
+    var postContent = document.getElementById('post-content').value;
+
+    // Cria um novo post
+    var newPost = document.createElement('div');
+    newPost.classList.add('post');
+
+    // Conteúdo dinâmico do novo post
+    newPost.innerHTML = `
+        <div class="user-info">
+            <img src="images/avatar.png" alt="Avatar" class="avatar">
+            <div>
+                <h3>UsuárioAtual</h3>
+                <span class="date">Publicado em ${new Date().toLocaleDateString()}</span>
+            </div>
+        </div>
+        <p class="content">${postContent}</p>
+    `;
+
+    // Adiciona o novo post ao container de posts
+    document.getElementById('posts-container').appendChild(newPost);
+
+    // Limpa o campo de texto e fecha o formulário
+    document.getElementById('post-content').value = '';
+    document.getElementById('post-form-container').classList.remove('active');
+});
+
+</script>
