@@ -1,4 +1,18 @@
-# Rodar o Projeto
+# Projeto Gamebridge
+
+## Grupo
+- Álvaro Nascimento Thees
+- Bruno Edson de Paiva Alves
+- Felipe Lazzarini Cunha
+- Pedro Detoni Pereira
+
+## Tecnologias
+- HTML
+- CSS
+- JavaScript
+- Bcrypt (criptografia para armazenamento de senhas)
+- Express
+- SQLite
 
 ## Pré-requisitos
 
