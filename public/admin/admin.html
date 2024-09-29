@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painel de Administrador</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #008B8B;
+      color: white;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid white;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+
+    .button {
+      background-color: white;
+      color: #008B8B;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: lightgray;
+    }
+
+    .logout-btn {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Painel de Administrador</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Editar</th>
+        <th>Deletar</th>
+      </tr>
+    </thead>
+    <tbody id="user-table"></tbody>
+  </table>
+
+  <button class="button logout-btn" onclick="logout()">Sair</button>
+
+  <script>
+    async function fetchUsers() {
+      const response = await fetch('/admin/users');
+      const users = await response.json();
+      
+      const userTable = document.getElementById('user-table');
+      userTable.innerHTML = '';
+
+      users.forEach(user => {
+        userTable.innerHTML += `
+          <tr>
+            <td>${user.id}</td>
+            <td>${user.name}</td>
+            <td>${user.email}</td>
+            <td><button class="button" onclick="editUser(${user.id})">Editar</button></td>
+            <td><button class="button" onclick="deleteUser(${user.id})">Deletar</button></td>
+          </tr>`;
+      });
+    }
+
+    // Editar user
+    async function editUser(id) {
+      const newName = prompt('Digite o novo nome:');
+      const newEmail = prompt('Digite o novo email:');
+      if (newName && newEmail) {
+        await fetch(`/admin/users/${id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: newName, email: newEmail })
+        });
+        fetchUsers();
+      }
+    }
+
+    // Deletar user
+    async function deleteUser(id) {
+      if (confirm('Tem certeza que deseja deletar o usuário?')) {
+        await fetch(`/admin/users/${id}`, { method: 'DELETE' });
+        fetchUsers();
+      }
+    }
+
+    // Logout
+    function logout() {
+      sessionStorage.removeItem('admin'); // Clear session
+      window.location.href = '../home/index.html'; // Redirect to home
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchUsers);
+  </script>
+</body>
+</html>

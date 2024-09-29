@@ -7,12 +7,12 @@
 - Pedro Detoni Pereira
 
 ## Tecnologias
-- HTML
-- CSS
+- HTML (frontend)
+- CSS (frontend)
 - JavaScript
 - Bcrypt (criptografia para armazenamento de senhas)
-- Express
-- SQLite
+- Express (backend)
+- SQLite (banco de dados)
 
 ## Pré-requisitos
 
@@ -26,6 +26,12 @@
 
 - Para iniciar o servidor ```node index.js``` (Porta padrão 3000, localhost)
 
-## Usuário Teste
+## Usuários
+### Dev
 - teste@gmail.com
 - senha: teste
+
+---
+### Administrador
+- admin
+- senha: admin

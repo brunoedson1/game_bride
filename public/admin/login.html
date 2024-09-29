@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Administrador</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #008B8B;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            color: #008B8B;
+            display: inline-block;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 80%;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #008B8B;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Login de Administrador</h1>
+    <div class="form-container">
+        <input type="text" id="admin-name" placeholder="Nome">
+        <input type="password" id="admin-password" placeholder="Senha">
+        <button onclick="loginAdmin()">Entrar</button>
+    </div>
+
+    <script>
+        async function loginAdmin() {
+            const name = document.getElementById('admin-name').value;
+            const password = document.getElementById('admin-password').value;
+
+            const response = await fetch('/admin/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, password })
+            });
+
+            if (response.status === 200) {
+                sessionStorage.setItem('admin', name);
+                window.location.href = './admin.html';
+            } else {
+                alert('Credenciais inválidas');
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -74,6 +74,59 @@ app.post('/login', (req, res) => {
     });
 }); 
 
+// Admin
+app.get('/admin/users', (req, res) => {
+  const query = `SELECT id, name, email FROM users`;
+  db.all(query, (err, rows) => {
+    if (err) {
+      return res.status(500).send('Erro ao buscar usuários');
+    }
+    res.json(rows);
+  });
+});
+
+// Editar
+app.put('/admin/users/:id', (req, res) => {
+  const { id } = req.params;
+  const { name, email } = req.body;
+
+  const query = `UPDATE users SET name = ?, email = ? WHERE id = ?`;
+  db.run(query, [name, email, id], function (err) {
+    if (err) {
+      return res.status(500).send('Erro ao editar usuário');
+    }
+    res.status(200).send('Usuário atualizado com sucesso');
+  });
+});
+
+// Deletar
+app.delete('/admin/users/:id', (req, res) => {
+  const { id } = req.params;
+
+  const query = `DELETE FROM users WHERE id = ?`;
+  db.run(query, id, function (err) {
+    if (err) {
+      return res.status(500).send('Erro ao deletar usuário');
+    }
+    res.status(200).send('Usuário deletado com sucesso');
+  });
+});
+
+app.post('/admin/login', (req, res) => {
+  const { name, password } = req.body;
+
+  const query = `SELECT * FROM admin WHERE name = ? AND password = ?`;
+  db.get(query, [name, password], (err, admin) => {
+    if (err) {
+      return res.status(500).send('Erro no servidor');
+    }
+    if (!admin) {
+      return res.status(401).send('Credenciais inválidas');
+    }
+    res.status(200).send('Login bem-sucedido');
+  });
+});
+
 // Inicializando o servidor
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);
