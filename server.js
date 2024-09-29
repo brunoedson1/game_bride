@@ -39,6 +39,41 @@ app.post('/register', async (req, res) => {
     });
 });
 
+// Rota para login de usuário
+app.post('/login', (req, res) => {
+    const { email, password } = req.body;
+  
+    const query = `SELECT * FROM users WHERE email = ?`;
+    db.get(query, [email], async (err, user) => {
+      if (err) {
+        return res.status(500).json({ message: 'Erro no servidor' });
+      }
+  
+      if (!user) {
+        return res.status(401).json({ message: 'Email ou senha inválidos' });
+      }
+  
+      // Verificar a senha usando bcrypt
+      const isPasswordValid = await bcrypt.compare(password, user.password);
+  
+      if (!isPasswordValid) {
+        return res.status(401).json({ message: 'Email ou senha inválidos' });
+      }
+  
+      // Gerar o "@" como combinação do primeiro nome + 3 primeiras letras do email
+      const firstName = user.name.split(' ')[0];
+      const emailPrefix = email.slice(0, 3);
+      const userHandle = `${firstName}${emailPrefix}`;
+  
+      // Enviar o tipo de usuário, nome e handle para o cliente
+      res.status(200).json({
+        is_dev: user.is_dev === 1,
+        name: user.name,
+        handle: userHandle
+      });
+    });
+}); 
+
 // Inicializando o servidor
 app.listen(port, () => {
     console.log(`Servidor rodando na porta ${port}`);

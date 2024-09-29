@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - GameBridge</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="../images/logo.png" alt="GameBridge" id="logo">
+            <h1>GameBridge</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Buscar por players, jogos, desenvolvedores...">
+        </div>
+        <div class="profile-menu">
+            <img src="images/avatar.png" alt="Perfil" class="avatar" id="profile-icon">
+            <div class="dropdown" id="profile-dropdown">
+                <ul>
+                    <li><a href="../home/index.html">Home</a></li>
+                    <li><a href="#">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="left-section">
+            <section class="profile-info">
+                <img src="images/avatar.png" alt="Avatar do Usuário" class="profile-avatar">
+                <div class="user-details">
+                    <h2>PixelCraft Studios</h2>
+                    <p>@pixelcraft_studios</p>
+                </div>
+
+                <div class="user-details2">
+                    <h3>ESTILOS DE GAMES</h3>
+                    <div class="tags-favoritas">
+                        <span class="tag">Ação</span>
+                        <span class="tag">Aventura</span>
+                        <span class="tag">RPG</span>
+                        <span class="tag">Estratégia</span>
+                        <span class="tag">Esporte</span>
+                        <span class="tag">Puzzle</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="comments-section">
+                <h3>POSTAGENS</h3>
+                <div class="comment">
+                    <div class="nic">
+                        <h4>Conquistas das Estrelas</h4>
+                    </div>
+                    <p class="comment-text">“Prepare-se para uma jornada épica pelo cosmos! Você comandará uma frota
+                        espacial, explorando galáxias desconhecidas e enfrentando desafios intergalácticos. A estratégia
+                        é a chave para dominar o universo!”</p>
+                </div>
+
+                <div class="comment">
+                    <div class="nic">
+                        <h4>Sagas do Horizonte</h4>
+                    </div>
+                    <p class="comment-text">“Mergulhe em um mundo de mistérios e aventuras. Cada decisão molda o destino
+                        do seu herói enquanto você desbrava terras inexploradas e enfrenta inimigos formidáveis. Sua
+                        coragem será testada a cada passo!”</p>
+                </div>
+
+                <div class="comment">
+                    <div class="nic">
+                        <h4>Viagem ao Centro da Terra</h4>
+                    </div>
+                    <p class="comment-text">“Descubra os segredos ocultos sob a superfície. Inspirado na obra de Júlio
+                        Verne, este jogo leva você a uma expedição subterrânea cheia de perigos e maravilhas. Prepare-se
+                        para o inesperado!”</p>
+                </div>
+
+                <div class="comment">
+                    <div class="nic">
+                        <h4>Fantasia dos Elementos</h4>
+                    </div>
+                    <p class="comment-text">"Você controlará os poderes da natureza para restaurar o equilíbrio do
+                        mundo. Domine os elementos e enfrente criaturas míticas em uma aventura mágica que desafiará sua
+                        habilidade e criatividade.”</p>
+                </div>
+
+                <div class="comment">
+                    <div class="nic">
+                        <h4>Aventuras de um Explorador</h4>
+                    </div>
+                    <p class="comment-text">“Abrace o espírito da exploração. Viaje por terras exóticas, descubra
+                        tesouros escondidos e desvende mistérios antigos. Cada jornada é uma nova história esperando
+                        para ser contada!”</p>
+                </div>
+
+                <div class="comment">
+                    <div class="nic">
+                        <h4>Reinos em Guerra</h4>
+                    </div>
+                    <p class="comment-text">"“Prepare-se para batalhas épicas. Construa seu império, forme alianças e
+                        lidere seu exército à vitória. A estratégia e a diplomacia serão suas maiores armas neste jogo
+                        de conquista e poder.”</p>
+                </div>
+            </section>
+        </div>
+
+        <section class="games-section">
+            <h3>JOGOS PRODUZIDOS</h3>
+            <div class="game-grid">
+                <div class="game">
+                    <img src="./images/game1.jpeg" alt="Nome do Jogo">
+                    <p>Conquista das Estrelas</p>
+                </div>
+
+                <div class="game">
+                    <img src="./images/game2.jpeg" alt="Nome do Jogo">
+                    <p>Sagas do Horizonte</p>
+                </div>
+
+                <div class="game">
+                    <img src="./images/game3.jpeg" alt="Nome do Jogo">
+                    <p>Viagem ao Centro da Terra</p>
+                </div>
+
+                <div class="game">
+                    <img src="./images/game4.jpeg" alt="Nome do Jogo">
+                    <p>Fantasia dos Elementos</p>
+                </div>
+
+                <div class="game">
+                    <img src="./images/game5.jpeg" alt="Nome do Jogo">
+                    <p>Aventuras de um Explorador</p>
+                </div>
+
+                <div class="game">
+                    <img src="./images/game6.jpeg" alt="Nome do Jogo">
+                    <p>Reinos em Guerra</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
+
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Chakra Petch', sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #3434bb;
+        color: white;
+        padding: 20px;
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    #logo {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+
+    .logo h1 {
+        font-size: 24px;
+    }
+
+    .search-bar input {
+        padding: 5px;
+        width: 600px;
+        border-radius: 4px;
+        height: 35px;
+        border: none;
+    }
+
+    .profile-menu {
+        position: relative;
+    }
+
+    .dropdown {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 50px;
+        background-color: white;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+        border-radius: 5px;
+    }
+
+    .dropdown ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .dropdown ul li {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .dropdown ul li:last-child {
+        border-bottom: none;
+    }
+
+    .dropdown ul li a {
+        text-decoration: none;
+        color: #333;
+    }
+
+    .dropdown ul li:hover {
+        background-color: #f4f4f4;
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+    }
+
+    nav ul li {
+        margin-right: 20px;
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        color: white;
+    }
+
+    main {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px;
+    }
+
+    .left-section {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+    }
+
+    .profile-info {
+        display: flex;
+        background-color: #D4E3EC;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        justify-content: space-between;
+    }
+
+    .profile-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-right: -250px;
+        margin-top: 24px;
+    }
+
+    .user-details {
+        display: flex;
+        flex-direction: column;
+        margin-top: 48px;
+    }
+
+    .user-details2 {
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        align-items: center;
+    }
+
+    .user-details2 h3 {
+        margin: 0;
+        text-decoration: underline;
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+
+    .tags-favoritas {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 colunas */
+        gap: 10px;
+        /* Espaçamento entre as tags */
+        width: 100%;
+        /* Faz as tags ocuparem a largura disponível */
+    }
+
+    .tag {
+        background-color: #d0d0d0;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 5px;
+        font-size: 14px;
+        text-align: center;
+        /* Centraliza o texto dentro das tags */
+    }
+
+    .comments-section {
+        background-color: #D4E3EC;
+        /* Fundo cinza claro */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .comments-section h3 {
+        padding: 10px;
+        text-align: center;
+        margin-bottom: 25px;
+        text-decoration: underline;
+    }
+
+    .comments-section .comment {
+        background-color: white;
+        /* Fundo branco para cada comentário */
+        padding: 15px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        /* Bordas arredondadas */
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+        /* Espaço entre o nome do jogo e o texto do comentário */
+    }
+
+    .comments-section .nic {
+        flex: 0 1 150px;
+        /* Largura fixa para o nome do jogo e desenvolvedora */
+    }
+
+    .comments-section .comment h4 {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .comments-section .comment p {
+        margin-bottom: 5px;
+    }
+
+    .comment-text {
+        flex: 1;
+        /* O texto do comentário ocupará o restante do espaço */
+        text-align: justify;
+    }
+
+    .games-section {
+        background-color: #D4E3EC;
+        /* Fundo cinza claro */
+        padding: 20px;
+        border-radius: 10px;
+        width: 35%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .games-section h3 {
+        margin-bottom: 50px;
+        margin-top: 10px;
+        margin-left: 10em;
+        text-decoration: underline;
+    }
+
+    .game-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .game {
+        position: relative;
+        text-align: center;
+    }
+
+    .game img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .game p {
+        background-color: rgba(0, 0, 0, 0.6);
+        /* Fundo transparente para o nome do jogo */
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        position: absolute;
+        bottom: 4px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 77%;
+        text-align: center;
+        font-size: 19px;
+    }
+</style>
+
+<script>
+    document.getElementById("profile-icon").addEventListener("click", function () {
+        var dropdown = document.getElementById("profile-dropdown");
+        if (dropdown.style.display === "block") {
+            dropdown.style.display = "none";
+        } else {
+            dropdown.style.display = "block";
+        }
+    });
+
+    window.onclick = function (event) {
+        if (!event.target.matches('.avatar')) {
+            var dropdowns = document.getElementsByClassName("dropdown");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.style.display === "block") {
+                    openDropdown.style.display = "none";
+                }
+            }
+        }
+    };
+
+    // Seleciona todas as tags
+    const tags = document.querySelectorAll('.tag');
+
+    // Array de cores que deseja usar
+    const colors = ['#64EE61', '#852CCB', '#DE2DCC', '#DE782D', '#EE6161', '#5EADD9'];
+
+    // Função para escolher uma cor aleatória
+    function getRandomColor() {
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    // Aplica uma cor aleatória a cada tag
+    tags.forEach(tag => {
+        tag.style.backgroundColor = getRandomColor();
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Captura o nome e handle da URL
+        const params = new URLSearchParams(window.location.search);
+        const userName = params.get('name');
+        const userHandle = params.get('handle');
+
+        // Insere os dados no div de user-details
+        document.querySelector('.user-details').innerHTML = `
+        <h2>${userName}</h2>
+        <p>@${userHandle}</p>
+    `;
+    });
+
+</script>
