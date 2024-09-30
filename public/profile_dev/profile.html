@@ -22,6 +22,7 @@
             <div class="dropdown" id="profile-dropdown">
                 <ul>
                     <li><a href="../home/index.html">Home</a></li>
+                    <li><a href="../timeline/timeline.html">Time Line</a></li>
                     <li><a href="#">Sair</a></li>
                 </ul>
             </div>
@@ -141,7 +142,18 @@
                     <p>Reinos em Guerra</p>
                 </div>
             </div>
+
+            <div id="add-game-section">
+                <h3>Adicionar Novo Jogo</h3>
+                <form id="add-game-form">
+                    <input type="text" id="game-name" placeholder="Nome do Jogo" required>
+                    <input type="file" id="game-image" accept="image/*" required>
+                    <button type="submit">Adicionar Jogo</button>
+                </form>
+            </div>
+
         </section>
+
     </main>
 </body>
 
@@ -161,6 +173,42 @@
         font-family: 'Chakra Petch', sans-serif;
         background-color: #f4f4f4;
     }
+
+    #add-game-section {
+        background-color: #ffffff;
+        padding: 20px;
+        align-items: center;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        margin-top: 40px;
+    }
+
+    #add-game-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #add-game-form input[type="text"],
+    #add-game-form input[type="file"] {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    #add-game-form button {
+        padding: 10px;
+        background-color: #3434bb;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #add-game-form button:hover {
+        background-color: #2323a1;
+    }
+
 
     header {
         display: flex;
@@ -476,5 +524,44 @@
         <p>@${userHandle}</p>
     `;
     });
+
+
+    //adicionar jogo
+    document.getElementById('add-game-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Obter o nome do jogo
+    const gameName = document.getElementById('game-name').value;
+
+    // Obter a imagem do jogo
+    const gameImageInput = document.getElementById('game-image');
+    const gameImage = gameImageInput.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        // Criar os elementos do novo jogo
+        const gameDiv = document.createElement('div');
+        gameDiv.classList.add('game');
+
+        const img = document.createElement('img');
+        img.src = e.target.result;
+        img.alt = gameName;
+
+        const p = document.createElement('p');
+        p.textContent = gameName;
+
+        // Adicionar os elementos ao div do jogo
+        gameDiv.appendChild(img);
+        gameDiv.appendChild(p);
+
+        // Adicionar o novo jogo à grade de jogos
+        document.querySelector('.game-grid').appendChild(gameDiv);
+
+        // Limpar o formulário
+        document.getElementById('add-game-form').reset();
+    };
+
+    reader.readAsDataURL(gameImage);
+});
 
 </script>
