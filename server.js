@@ -17,26 +17,28 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/home', 'index.html'));
 });
 
-// Rota para cadastro de usuário
 app.post('/register', async (req, res) => {
-    const { name, email, password, is_dev } = req.body;
+  const { name, email, password, is_dev } = req.body;
 
-    // Verificação básica dos campos obrigatórios
-    if (!name || !email || !password) {
-        return res.status(400).send('Todos os campos são obrigatórios!');
-    }
+  // Verificação básica dos campos obrigatórios
+  if (!name || !email || !password) {
+      return res.status(400).send('Todos os campos são obrigatórios!');
+  }
 
-    // Hash da senha
-    const hashedPassword = await bcrypt.hash(password, 10);
+  // Hash da senha
+  const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Inserir usuário no banco de dados
-    const query = `INSERT INTO users (name, email, password, is_dev) VALUES (?, ?, ?, ?)`;
-    db.run(query, [name, email, hashedPassword, is_dev ? 1 : 0], function(err) {
-        if (err) {
-            return res.status(500).send('Erro ao cadastrar usuário');
-        }
-        res.status(201).send('Usuário cadastrado com sucesso');
-    });
+  // Conversão correta do valor de is_dev para número
+  const isDevValue = is_dev === '1' ? 1 : 0;  // Converte a string '1' ou '0' para número
+
+  // Inserir usuário no banco de dados
+  const query = `INSERT INTO users (name, email, password, is_dev) VALUES (?, ?, ?, ?)`;
+  db.run(query, [name, email, hashedPassword, isDevValue], function(err) {
+      if (err) {
+          return res.status(500).send('Erro ao cadastrar usuário');
+      }
+      res.status(201).send('Usuário cadastrado com sucesso');
+  });
 });
 
 // Rota para login de usuário
